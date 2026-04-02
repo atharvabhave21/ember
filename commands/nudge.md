@@ -1,3 +1,7 @@
+---
+description: Surface the contacts you should reconnect with, ranked by urgency. Scans your Contacts and Interactions databases and returns up to 10 people grouped by Overdue, Stuck, and Going Cold. Use when asked who to follow up with, who you've been neglecting, or who to reconnect with.
+---
+
 # /ember:nudge
 
 Surface the contacts the user should reconnect with, ranked by urgency.

@@ -1,3 +1,7 @@
+---
+description: Logs an interaction with a contact into the Notion Interactions database. Supports conversational flow or a fast-track one-liner. Triggers when the user runs /ember:log, or says things like "log a call with [name]", "I just had a coffee chat with [name]".
+---
+
 # Ember Skill 04 — Interaction Logging
 
 ## Purpose

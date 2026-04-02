@@ -1,3 +1,7 @@
+---
+description: Run Ember's first-time onboarding flow. Connects your Notion workspace and personalises Ember for you. Use this when setting up Ember for the first time or when asked to set up, configure, or initialise Ember.
+---
+
 # /ember:setup
 
 Run Ember's first-time onboarding flow.

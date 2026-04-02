@@ -1,3 +1,7 @@
+---
+description: Adds a new contact to the Notion Contacts database. Supports conversational flow or a fast-track one-liner. Triggers when the user runs /ember:add, wants to add a contact, or says things like "add [name]" or "I want to track someone new".
+---
+
 # Ember Skill 01 — Contact Intake
 
 ## Purpose

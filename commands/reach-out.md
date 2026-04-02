@@ -1,3 +1,8 @@
+---
+description: Draft a first-touch outreach message to a contact, personalised by channel and context. Use when asked to reach out to someone, draft an outreach message, or write a first message to a contact.
+argument-hint: "[Contact Name]"
+---
+
 # /ember:reach-out
 
 Draft a first-touch outreach message to a contact in the Notion Contacts database.

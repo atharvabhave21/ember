@@ -1,3 +1,8 @@
+---
+description: Log an interaction with a contact into your Notion Interactions database. Supports conversational flow or a fast-track one-liner. Use when asked to log a call, coffee chat, email, DM, or any interaction with a contact.
+argument-hint: "[interaction details, e.g. coffee chat with Alex yesterday, discussed X, follow up next week]"
+---
+
 # /ember:log
 
 Log an interaction with a contact into the Notion Interactions database.

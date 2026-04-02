@@ -1,3 +1,7 @@
+---
+description: Surfaces contacts the user should reconnect with, ranked by urgency into Overdue, Stuck, and Going Cold tiers. Triggers when the user runs /ember:nudge, asks who to follow up with, or says things like "who have I been neglecting" or "who should I reconnect with".
+---
+
 # Ember Skill 05 — Follow-Up Nudging
 
 ## Purpose

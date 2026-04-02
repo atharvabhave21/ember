@@ -1,3 +1,8 @@
+---
+description: Draft a follow-up message to an existing contact using logged interaction history. Use when asked to follow up with someone, send a follow-up, or continue a conversation with a contact.
+argument-hint: "[Contact Name]"
+---
+
 # /ember:follow-up
 
 Draft a follow-up message to an existing contact using logged interaction history.

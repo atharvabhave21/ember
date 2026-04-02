@@ -1,3 +1,8 @@
+---
+description: Add a new contact to your Notion Contacts database. Supports conversational flow or a fast-track one-liner. Use when asked to add a contact, save someone's info, or track a new person in the network.
+argument-hint: "[Name, Role at Company, how you met]"
+---
+
 # /ember:add
 
 Add a new contact to the Notion Contacts database.
