@@ -69,15 +69,19 @@ Ember reads and writes to your Notion workspace via the official Notion MCP inte
 
 ---
 
-### Step 3 — Install the Ember Plugin
+### Step 3 — Download and Install the Ember Plugin
 
-In Claude Cowork, run this command:
+1. Go to the [Ember GitHub repo](https://github.com/atharvabhave21/ember)
+2. Download the `ember.plugin` file from the root of the repo
+3. In Claude Cowork, run:
 
 ```
-claude plugin install atharvabhave21/ember
+claude plugin install ~/Downloads/ember.plugin
 ```
 
-Cowork will pull the plugin from GitHub, wire up the Notion connection automatically, and load all of Ember's skills and slash commands. No manual configuration needed.
+Replace `~/Downloads/ember.plugin` with the actual path to where you saved the file on your computer.
+
+Cowork will read the plugin, wire up the Notion MCP connection automatically, and load all of Ember's skills and slash commands.
 
 ---
 
