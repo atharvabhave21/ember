@@ -19,12 +19,12 @@ Everything lives in **your own Notion workspace**. Ember never stores your data 
 
 | Command | What it does |
 |---|---|
-| `/ember setup` | First-time setup — connects your Notion workspace and personalises Ember for you |
-| `/ember add` | Add a new contact (conversational or one-liner fast-track) |
-| `/ember reach out` | Draft a first-touch outreach message, personalised by channel and context |
-| `/ember follow up` | Draft a follow-up using your logged interaction history |
-| `/ember log` | Log a call, coffee chat, DM, or email in seconds |
-| `/ember nudge` | See who you're overdue to follow up with, ranked by urgency |
+| `/ember:setup` | First-time setup — connects your Notion workspace and personalises Ember for you |
+| `/ember:add` | Add a new contact (conversational or one-liner fast-track) |
+| `/ember:reach-out` | Draft a first-touch outreach message, personalised by channel and context |
+| `/ember:follow-up` | Draft a follow-up using your logged interaction history |
+| `/ember:log` | Log a call, coffee chat, DM, or email in seconds |
+| `/ember:nudge` | See who you're overdue to follow up with, ranked by urgency |
 
 ---
 
@@ -32,9 +32,9 @@ Everything lives in **your own Notion workspace**. Ember never stores your data 
 
 You need three things. All free, all one-time setup.
 
-1. **A Claude account** — [claude.ai](https://claude.ai) (free tier works)
+1. **A Claude account on a paid plan** — [claude.ai](https://claude.ai) (Pro or Max)
 2. **A Notion account** — [notion.so](https://www.notion.so) (free tier works)
-3. **The Notion MCP integration enabled** in Claude — takes about 60 seconds (instructions below)
+3. **Claude Cowork** — the desktop app from Anthropic ([download here](https://claude.ai/download))
 
 ---
 
@@ -42,7 +42,7 @@ You need three things. All free, all one-time setup.
 
 ### Step 1 — Duplicate the Notion Template
 
-Click the link below and hit **"Duplicate"** in the top-right corner of the Notion page. This copies the pre-built Ember workspace (Contacts database, Interactions database, and Settings page) into your own Notion account.
+Click the link below and hit **"Duplicate"** in the top-right corner of the Notion page. This copies the pre-built Ember workspace into your own Notion account.
 
 👉 [Duplicate the Ember Notion Template](https://www.notion.so/Ember-Networking-CRM-Template-3346ced227548125a3f6c0f5a2caa5a3)
 
@@ -57,30 +57,40 @@ You don't need to fill anything in yet. Ember will populate your Settings page d
 
 ### Step 2 — Connect Notion to Claude
 
-Ember reads and writes to your Notion workspace via an official integration called Notion MCP. Here's how to enable it:
+Ember reads and writes to your Notion workspace via the official Notion MCP integration. Here's how to enable it:
 
-1. Open [claude.ai](https://claude.ai) and sign in
-2. Click the **plug icon** (⚡) in the bottom-left sidebar — this opens the Integrations menu
+1. Open **Claude Cowork** (the desktop app) and sign in
+2. Click the **plug icon** (⚡) in the sidebar — this opens the Integrations menu
 3. Find **Notion** in the list and click **Connect**
 4. You'll be redirected to Notion to authorise the connection — click **Allow Access**
-5. Come back to Claude — the Notion integration will now show as connected
-
-That's it. Claude can now read and write to your Notion workspace. No API keys. No code.
+5. Come back to Cowork — Notion will now show as connected
 
 > **Note:** Ember only accesses the pages and databases it needs — your Contacts, Interactions, and Settings. It doesn't touch anything else in your Notion.
 
 ---
 
-### Step 3 — Run Ember Onboarding
+### Step 3 — Install the Ember Plugin
 
-Open a new Claude conversation and type:
+In Claude Cowork, run this command:
 
 ```
-/ember setup
+claude plugin install atharvabhave21/ember
+```
+
+Cowork will pull the plugin from GitHub, wire up the Notion connection automatically, and load all of Ember's skills and slash commands. No manual configuration needed.
+
+---
+
+### Step 4 — Run Ember Onboarding
+
+Once the plugin is installed, type:
+
+```
+/ember:setup
 ```
 
 Ember will:
-1. Verify your Notion databases are connected and ready
+1. Silently verify your Notion databases are connected and ready
 2. Ask you three quick questions (your name, your role, why you're networking)
 3. Save your answers to your Ember Settings page in Notion
 4. Unlock the full command set
@@ -91,7 +101,7 @@ The whole thing takes under 2 minutes.
 
 ## Using Ember — Full Command Guide
 
-### `/ember add` — Add a Contact
+### `/ember:add` — Add a Contact
 
 **Conversational flow** — Ember asks one question at a time:
 ```
@@ -115,7 +125,7 @@ Fields Ember captures:
 
 ---
 
-### `/ember reach out` — Draft an Outreach Message
+### `/ember:reach-out` — Draft an Outreach Message
 
 ```
 /ember reach out Alex Rivera
@@ -137,7 +147,7 @@ After approving the draft, Ember will offer to:
 
 ---
 
-### `/ember follow up` — Draft a Follow-Up Message
+### `/ember:follow-up` — Draft a Follow-Up Message
 
 ```
 /ember follow up Alex Rivera
@@ -151,7 +161,7 @@ After approving, Ember logs the follow-up and suggests a stage update.
 
 ---
 
-### `/ember log` — Log an Interaction
+### `/ember:log` — Log an Interaction
 
 **Conversational:**
 ```
@@ -171,7 +181,7 @@ After logging, Ember will offer to:
 
 ---
 
-### `/ember nudge` — See Who to Reconnect With
+### `/ember:nudge` — See Who to Reconnect With
 
 ```
 /ember nudge
@@ -228,7 +238,7 @@ This is why logging interactions matters. The more you log, the better Ember's d
 ## Troubleshooting
 
 **"I don't have [Name] in your contacts yet"**  
-Ember can't draft messages for contacts that aren't in your Notion. Add them first with `/ember add`, then retry.
+Ember can't draft messages for contacts that aren't in your Notion. Add them first with `/ember:add`, then retry.
 
 **"I couldn't find your Ember Settings page"**  
 You likely haven't duplicated the Notion template yet, or duplicated it into a workspace that isn't connected to Claude. Re-duplicate the template and make sure the Notion integration is authorised.
@@ -249,7 +259,16 @@ Ember enforces a hard 300-character cap on LinkedIn DMs (LinkedIn's actual limit
 ```
 ember/
 ├── README.md
-├── ember.plugin.json          # Plugin manifest
+├── .claude-plugin/
+│   └── plugin.json            # Cowork plugin manifest
+├── .mcp.json                  # Notion MCP connection — auto-wired on install
+├── commands/
+│   ├── setup.md               # /ember:setup
+│   ├── add.md                 # /ember:add
+│   ├── reach-out.md           # /ember:reach-out
+│   ├── follow-up.md           # /ember:follow-up
+│   ├── log.md                 # /ember:log
+│   └── nudge.md               # /ember:nudge
 └── skills/
     ├── 00-onboarding.md       # First-time setup flow
     ├── 01-contact-intake.md   # Add contacts
