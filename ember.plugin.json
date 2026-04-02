@@ -1,0 +1,113 @@
+{
+  "name": "Ember",
+  "version": "1.0.0",
+  "description": "Stay on top of every relationship that matters. Ember is a personal networking CRM — add contacts, draft outreach, log interactions, and get nudged before connections go cold.",
+  "author": "atharvabhave21",
+  "icon": "🔥",
+  "homepage": "https://github.com/atharvabhave21/ember",
+
+  "skills": [
+    {
+      "id": "onboarding",
+      "file": "skills/00-onboarding.md",
+      "description": "First-time setup — connects Notion workspace, collects user context, and unlocks the full plugin"
+    },
+    {
+      "id": "contact-intake",
+      "file": "skills/01-contact-intake.md",
+      "description": "Add a new contact to the Contacts database — supports one-liner fast-track and conversational flow"
+    },
+    {
+      "id": "outreach",
+      "file": "skills/02-outreach.md",
+      "description": "Draft a first-touch outreach message personalised to the contact and the user's networking purpose"
+    },
+    {
+      "id": "follow-up",
+      "file": "skills/03-follow-up.md",
+      "description": "Draft a follow-up message using the contact's interaction history and the 3 most recent logged touchpoints"
+    },
+    {
+      "id": "log",
+      "file": "skills/04-log.md",
+      "description": "Log an interaction with a contact into the Interactions database — fast capture with next step tracking"
+    },
+    {
+      "id": "nudge",
+      "file": "skills/05-nudge.md",
+      "description": "Surface the contacts the user should reconnect with — ranked by urgency, grouped by signal type, capped at 10"
+    }
+  ],
+
+  "commands": [
+    {
+      "command": "/ember",
+      "skill": "onboarding",
+      "description": "Start Ember or run first-time setup"
+    },
+    {
+      "command": "/ember setup",
+      "skill": "onboarding",
+      "description": "Re-run the onboarding and setup flow"
+    },
+    {
+      "command": "/ember add",
+      "skill": "contact-intake",
+      "description": "Add a new contact",
+      "aliases": ["/ember contact"]
+    },
+    {
+      "command": "/ember reach out",
+      "skill": "outreach",
+      "description": "Draft a first outreach message to a contact",
+      "aliases": ["/ember outreach"]
+    },
+    {
+      "command": "/ember follow up",
+      "skill": "follow-up",
+      "description": "Draft a follow-up message to an existing contact",
+      "aliases": ["/ember followup"]
+    },
+    {
+      "command": "/ember log",
+      "skill": "log",
+      "description": "Log an interaction with a contact"
+    },
+    {
+      "command": "/ember nudge",
+      "skill": "nudge",
+      "description": "See who you should reconnect with"
+    }
+  ],
+
+  "integrations": {
+    "notion_mcp": {
+      "required": true,
+      "reason": "Ember reads and writes to Notion Contacts, Interactions, and Settings databases. All data lives in the user's own Notion workspace — Ember never stores anything externally.",
+      "setup_prompt": "To use Ember, you'll need to connect your Notion workspace. Make sure the Notion MCP integration is enabled in your Claude settings."
+    }
+  },
+
+  "triggers": {
+    "on_session_start": {
+      "skill": "nudge",
+      "mode": "silent",
+      "interrupt_if": "overdue_contacts_found",
+      "message": "Hey — you have {n} contact{s} overdue for follow-up. Type `/ember nudge` to see them.",
+      "description": "Silently checks for overdue contacts on session start. Only surfaces a single line if something urgent is found. Complete silence if everything is up to date."
+    }
+  },
+
+  "notion_template": {
+    "url": "https://www.notion.so/Ember-Networking-CRM-Template-3346ced227548125a3f6c0f5a2caa5a3",
+    "description": "Pre-built Notion template with Contacts DB, Interactions DB, and Settings page — duplicate to get started in under 2 minutes"
+  },
+
+  "metadata": {
+    "cowork_min_version": "1.0.0",
+    "tags": ["networking", "crm", "productivity", "notion"],
+    "category": "Productivity",
+    "license": "MIT",
+    "repository": "https://github.com/atharvabhave21/ember"
+  }
+}
