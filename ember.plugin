@@ -1,0 +1,30 @@
+{
+  "name": "ember",
+  "version": "1.0.0",
+  "description": "Personal networking CRM — add contacts, draft outreach, log interactions, and get nudged before connections go cold. Backed by your own Notion workspace.",
+  "author": "atharvabhave21",
+  "icon": "🔥",
+  "homepage": "https://github.com/atharvabhave21/ember",
+  "skills": [
+    "skills/00-onboarding.md",
+    "skills/01-contact-intake.md",
+    "skills/02-outreach.md",
+    "skills/03-follow-up.md",
+    "skills/04-log.md",
+    "skills/05-nudge.md"
+  ],
+  "commands": [
+    "commands/setup.md",
+    "commands/add.md",
+    "commands/reach-out.md",
+    "commands/follow-up.md",
+    "commands/log.md",
+    "commands/nudge.md"
+  ],
+  "mcpServers": {
+    "notion": {
+      "type": "url",
+      "url": "https://mcp.notion.com/mcp"
+    }
+  }
+}
