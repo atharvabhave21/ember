@@ -44,7 +44,7 @@ You need three things. All free, all one-time setup.
 
 Click the link below and hit **"Duplicate"** in the top-right corner of the Notion page. This copies the pre-built Ember workspace into your own Notion account.
 
-👉 [Duplicate the Ember Notion Template]([https://www.notion.so/Ember-Networking-CRM-Template-3346ced227548125a3f6c0f5a2caa5a3](https://languid-drip-947.notion.site/Ember-Personal-Networking-CRM-Template-3346ced227548125a3f6c0f5a2caa5a3))
+👉 [Duplicate the Ember Notion Template](https://languid-drip-947.notion.site/Ember-Personal-Networking-CRM-Template-3346ced227548125a3f6c0f5a2caa5a3)
 
 You'll end up with three things in your Notion:
 - **Contacts** — a database to store everyone you're networking with
