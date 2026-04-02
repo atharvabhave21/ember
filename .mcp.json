@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "notion": {
+      "type": "integration",
+      "name": "Notion",
+      "description": "Connects Ember to your Notion workspace. Required for reading and writing Contacts, Interactions, and Ember Settings.",
+      "setupInstructions": "Open Claude Cowork, click the plug icon (⚡) in the sidebar, find Notion, and click Connect. Authorise access in Notion, then run /ember:setup."
+    }
+  }
+}
