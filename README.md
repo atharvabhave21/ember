@@ -1,15 +1,15 @@
 # 🔥 Ember — Personal Networking CRM for Claude
 
-> Stay on top of every relationship that matters.  
-> Add contacts, draft outreach, log interactions, and get nudged before connections go cold — all from a conversation with Claude.
+> Stay on top of every relationship and opportunity that matters.  
+> Track contacts, companies, and job applications. Draft outreach, log interactions, and get nudged before connections go cold — all from a conversation with Claude.
 
 ---
 
 ## What is Ember?
 
-Ember is a Claude plugin that turns your Notion workspace into a personal networking CRM. Instead of juggling spreadsheets, reminders, and LinkedIn DMs in separate tabs, you talk to Claude in plain English — and Ember handles the rest.
+Ember is a Claude plugin that turns your Notion workspace into a personal networking CRM and job search pipeline. Instead of juggling spreadsheets, reminders, and LinkedIn DMs in separate tabs, you talk to Claude in plain English — and Ember handles the rest.
 
-It's built for anyone who is serious about their network: MBA students in recruiting season, founders doing BD, freelancers maintaining client relationships, or anyone who has ever thought *"I should really follow up with that person."*
+It's built for anyone serious about their network and job search: MBA students in recruiting season, founders doing BD, freelancers maintaining client relationships, or anyone who has ever thought *"I should really follow up with that person."*
 
 Everything lives in **your own Notion workspace**. Ember never stores your data externally.
 
@@ -17,20 +17,32 @@ Everything lives in **your own Notion workspace**. Ember never stores your data 
 
 ## What Ember Can Do
 
+### Contacts & Outreach
 | Command | What it does |
 |---|---|
-| `/ember:setup` | First-time setup — connects your Notion workspace and personalises Ember for you |
-| `/ember:add` | Add a new contact (conversational or one-liner fast-track) |
+| `/ember:setup` | First-time setup — connects your Notion workspace and personalises Ember |
+| `/ember:contact` | Add a new contact (conversational or one-liner fast-track) |
 | `/ember:reach-out` | Draft a first-touch outreach message, personalised by channel and context |
 | `/ember:follow-up` | Draft a follow-up using your logged interaction history |
 | `/ember:log` | Log a call, coffee chat, DM, or email in seconds |
-| `/ember:nudge` | See who you're overdue to follow up with, ranked by urgency |
+| `/ember:nudge` | See who and what needs your attention, ranked by urgency |
+
+### Companies & Applications
+| Command | What it does |
+|---|---|
+| `/ember:company` | Add a target company to your job search pipeline |
+| `/ember:apply` | Log a job application or update an existing one |
+| `/ember:pipeline` | Bird's eye view of all target companies grouped by status |
+
+### Search & Explore
+| Command | What it does |
+|---|---|
+| `/ember:scout` | Full profile — company or contact — in one view |
+| `/ember:search` | Search across your entire network using natural language |
 
 ---
 
 ## Before You Start — What You Need
-
-You need three things. All free, all one-time setup.
 
 1. **A Claude account on a paid plan** — [claude.ai](https://claude.ai) (Pro or Max)
 2. **A Notion account** — [notion.so](https://www.notion.so) (free tier works)
@@ -42,170 +54,187 @@ You need three things. All free, all one-time setup.
 
 ### Step 1 — Duplicate the Notion Template
 
-Click the link below and hit **"Duplicate"** in the top-right corner of the Notion page. This copies the pre-built Ember workspace into your own Notion account.
+Click the link below and hit **"Duplicate"** in the top-right corner of the Notion page.
 
 👉 [Duplicate the Ember Notion Template](https://languid-drip-947.notion.site/Ember-Personal-Networking-CRM-Template-3346ced227548125a3f6c0f5a2caa5a3)
 
-You'll end up with three things in your Notion:
-- **Contacts** — a database to store everyone you're networking with
-- **Interactions** — a database to log every touchpoint (calls, DMs, coffees)
-- **Ember Settings** — a page where Ember stores your name, role, and networking goal
+You'll get five things in your Notion — rename all of them by removing "(Template)" from the name:
 
-You don't need to fill anything in yet. Ember will populate your Settings page during onboarding.
+| Rename this | To this |
+|---|---|
+| Contacts (Template) | Contacts |
+| Interactions (Template) | Interactions |
+| Companies (Template) | Companies |
+| Applications (Template) | Applications |
+| Ember Settings (Template) | Ember Settings |
 
 ---
 
 ### Step 2 — Connect Notion to Claude
 
-Ember reads and writes to your Notion workspace via the official Notion MCP integration. Here's how to enable it:
-
-1. Open **Claude Cowork** (the desktop app) and sign in
-2. Click the **plug icon** (⚡) in the sidebar — this opens the Integrations menu
-3. Find **Notion** in the list and click **Connect**
-4. You'll be redirected to Notion to authorise the connection — click **Allow Access**
-5. Come back to Cowork — Notion will now show as connected
-
-> **Note:** Ember only accesses the pages and databases it needs — your Contacts, Interactions, and Settings. It doesn't touch anything else in your Notion.
+1. Open **Claude Cowork** and sign in
+2. Click the **plug icon** (⚡) in the sidebar
+3. Find **Notion** and click **Connect**
+4. Authorise access in Notion, then return to Cowork
 
 ---
 
-### Step 3 — Download and Install the Ember Plugin
+### Step 3 — Install the Ember Plugin
 
-1. Go to the [Ember GitHub repo](https://github.com/atharvabhave21/ember)
-2. Download the `ember.plugin` file from the root of the repo
-3. In Claude Cowork, run:
+1. Download `ember.plugin` from the [Ember GitHub repo](https://github.com/atharvabhave21/ember)
+2. In Claude Cowork, run:
 
 ```
 claude plugin install ~/Downloads/ember.plugin
 ```
 
-Replace `~/Downloads/ember.plugin` with the actual path to where you saved the file on your computer.
-
-Cowork will read the plugin, wire up the Notion MCP connection automatically, and load all of Ember's skills and slash commands.
-
 ---
 
-### Step 4 — Run Ember Onboarding
-
-Once the plugin is installed, type:
+### Step 4 — Run Setup
 
 ```
 /ember:setup
 ```
 
-Ember will:
-1. Silently verify your Notion databases are connected and ready
-2. Ask you three quick questions (your name, your role, why you're networking)
-3. Save your answers to your Ember Settings page in Notion
-4. Unlock the full command set
-
-The whole thing takes under 2 minutes.
+Ember will verify your Notion databases, ask three quick questions, and unlock the full command set. Takes under 2 minutes.
 
 ---
 
 ## Using Ember — Full Command Guide
 
-### `/ember:add` — Add a Contact
+### `/ember:contact` — Add a Contact
 
-**Conversational flow** — Ember asks one question at a time:
 ```
-/ember add
-```
-
-**Fast-track** — drop everything in one line:
-```
-/ember add Alex Rivera, PM at Acme Corp, met at a Kellogg networking event
+/ember:contact
+/ember:contact Alex Rivera, PM at Zepto, met at a Kellogg networking event
 ```
 
-Ember will parse whatever you give it, ask for anything missing, and write the contact to your Notion Contacts database. It automatically infers the **Relationship Stage** (Prospect, Connected, Active, etc.) from context — you never have to set it manually.
-
-Fields Ember captures:
-- Name, Company, Role
-- LinkedIn URL (optional)
-- How We Met
-- Relationship Stage (inferred)
-- Next Follow-Up Date (if you mention one)
-- Notes and Tags (if you mention relevant context)
+Ember captures Name, Company (linked to Companies DB), Role, LinkedIn URL, How We Met, and infers Relationship Stage automatically. If the company doesn't exist in your tracker, Ember asks whether it's a target — one question, then handles everything silently.
 
 ---
 
-### `/ember:reach-out` — Draft an Outreach Message
+### `/ember:company` — Add a Target Company
 
 ```
-/ember reach out Alex Rivera
+/ember:company
+/ember:company Zepto, quick commerce, Series D, Bangalore, found on LinkedIn
 ```
 
-Ember pulls Alex's contact record from Notion, reads your Settings (your name, role, and networking goal), figures out the best hook, and drafts a personalised first-touch message.
-
-**Supported channels:**
-- LinkedIn DM (hard 300-character cap — Ember counts characters for you and cuts if needed)
-- LinkedIn InMail (with subject line)
-- Email (with specific subject line)
-- WhatsApp
-
-Ember infers tone from context — it won't ask. Every draft comes with a one-line metadata strip so you know exactly what hook and tone were used, and why.
-
-After approving the draft, Ember will offer to:
-- Log the outreach in your Interactions database
-- Update the contact's Relationship Stage
+Adds a company to your pipeline with Is Target = true. Ember captures Name, Why Attractive, Industry, Stage, HQ City, and Source. All select options are read dynamically from your Notion schema — add new options in Notion and they appear automatically.
 
 ---
 
-### `/ember:follow-up` — Draft a Follow-Up Message
+### `/ember:apply` — Log a Job Application
 
 ```
-/ember follow up Alex Rivera
+/ember:apply
+/ember:apply PM Growth at Zepto, high priority, applied today
+/ember:apply update Zepto PM to Phone Screen
 ```
 
-Ember pulls the 3 most recent logged interactions with Alex, recaps them for you, confirms what you want to follow up on, and drafts a message. It never re-introduces you (the recipient already knows you) and always references something specific from your last conversation.
+Links the application to the company in your Companies DB. Infers Status from context (Applied, Phone Screen, Final Round, etc.). Offers to set a follow-up reminder and update the company's overall status.
 
-Same channels as outreach, same 300-character cap for LinkedIn DM.
+---
 
-After approving, Ember logs the follow-up and suggests a stage update.
+### `/ember:pipeline` — View Your Company Pipeline
+
+```
+/ember:pipeline
+```
+
+Shows all target companies grouped by status — Active → Targeting → Researching → Passed. For each company: contacts there, open applications, last interaction date, and a stale flag (⚠️) if no activity recently. Surfaces the single most important action to take.
+
+---
+
+### `/ember:scout` — Full Profile
+
+```
+/ember:scout Zepto
+/ember:scout Sarah Chen
+```
+
+Automatically detects whether you're asking about a company or a person.
+
+- **Company profile:** status, why attractive, all contacts there, open applications, links
+- **Contact profile:** relationship stage, company info, full interaction history, next step
+
+---
+
+### `/ember:search` — Search Your Network
+
+```
+/ember:search Series B companies in Bangalore
+/ember:search contacts I met at networking events
+/ember:search high priority applications in Final Round
+/ember:search VIP contacts I haven't spoken to in a while
+```
+
+Searches across all four databases using natural language. Infers filters, runs the query, shows results with what was filtered by.
+
+---
+
+### `/ember:reach-out` — Draft Outreach
+
+```
+/ember:reach-out Alex Rivera
+```
+
+Pulls Alex's record, reads your Settings, finds the best hook, and drafts a personalised first-touch message. Supported channels: LinkedIn DM (hard 300-char cap), LinkedIn InMail, Email, WhatsApp.
+
+---
+
+### `/ember:follow-up` — Draft a Follow-Up
+
+```
+/ember:follow-up Alex Rivera
+```
+
+Loads the 3 most recent interactions, recaps for confirmation, then drafts a message that references your actual last conversation. Never re-introduces you.
 
 ---
 
 ### `/ember:log` — Log an Interaction
 
-**Conversational:**
 ```
-/ember log
-```
-
-**Fast-track one-liner:**
-```
-/ember log — coffee chat with Jamie yesterday, she offered to make an intro to the strategy team, follow up next week
+/ember:log
+/ember:log coffee chat with Jamie yesterday, she offered an intro to strategy team, follow up next week
 ```
 
-Ember parses the one-liner, fills in today's date if you didn't specify one, and writes everything to your Interactions database — including the **Next Step**, which is what powers the follow-up drafting later.
-
-After logging, Ember will offer to:
-- Set a follow-up date on the contact record
-- Update the contact's Relationship Stage
+Writes to your Interactions DB including Next Step — which powers follow-up drafting later.
 
 ---
 
-### `/ember:nudge` — See Who to Reconnect With
+### `/ember:nudge` — See What Needs Attention
 
 ```
-/ember nudge
+/ember:nudge
 ```
 
-Ember scans your entire Contacts and Interactions databases and surfaces up to 10 people you should reconnect with, grouped into three tiers:
+Surfaces up to 7 people (Overdue / Stuck / Going Cold) plus company and application nudges (stalled pipeline, Final Round with no activity). Offers to draft a message or take action for any of them.
 
-**Overdue** — contacts with a past-due follow-up date  
-**Stuck** — contacts whose stage hasn't moved in too long (e.g. "Request Sent" for 14+ days with no reply logged)  
-**Going Cold** — high-value contacts (VIP, Mentor, Investor tags, or Active stage) you haven't touched in 30–60+ days
+---
 
-Each nudge card is one line: name, reason, last touchpoint. No fluff.
+## Your Notion Databases
 
-From the nudge list, you can say "draft a message for Alex" and Ember will hand off to the right skill automatically.
+Ember uses four linked databases in your Notion workspace:
+
+| Database | What it stores |
+|---|---|
+| **Contacts** | Everyone in your network, linked to their company |
+| **Interactions** | Every touchpoint — calls, DMs, coffees, emails |
+| **Companies** | Every employer — targets (Is Target = true) and directory entries |
+| **Applications** | Job applications, linked to companies and referral contacts |
+
+Plus one settings page: **Ember Settings** — your name, role, and networking goal.
+
+### About select field options
+All select options (Industry, Stage, Status, etc.) are read dynamically from your Notion schema at runtime. To add a new option, just edit the field in Notion — no skill files need updating.
 
 ---
 
 ## How the Relationship Stage Works
 
-Ember tracks every contact's stage through the pipeline. You never set stages manually — Ember infers and updates them.
+Ember tracks every contact's stage automatically — you never set it manually.
 
 | Stage | What it means |
 |---|---|
@@ -215,46 +244,31 @@ Ember tracks every contact's stage through the pipeline. You never set stages ma
 | Active | In active dialogue — recent back-and-forth |
 | Dormant | Haven't spoken in a while |
 
-Stages power the nudge logic and shape how Ember drafts your messages. A follow-up to someone at "Request Sent" will be a gentle nudge that acknowledges no reply yet. A follow-up to someone "Active" will pick up right where you left off.
-
----
-
-## How Ember Personalises Your Messages
-
-Ember reads three things every time it drafts a message:
-
-1. **Your Settings** (name, role, networking goal) — so messages sound like you and reflect your purpose
-2. **The contact's record** (company, role, how you met, tags) — so the hook is always relevant
-3. **Your interaction history** (the 3 most recent logged touchpoints) — so follow-ups reference real conversations
-
-This is why logging interactions matters. The more you log, the better Ember's drafts get.
-
 ---
 
 ## Your Data — Privacy and Ownership
 
-- **All your data lives in your own Notion workspace.** Ember never stores anything on external servers.
-- Ember connects to Notion via the official [Notion MCP](https://notion.so) integration. You control what it can access.
-- To delete your data, just delete the Notion databases. Nothing else to clean up.
+- **All your data lives in your own Notion workspace.** Ember never stores anything externally.
+- To delete your data, just delete the Notion databases.
 
 ---
 
 ## Troubleshooting
 
-**"I don't have [Name] in your contacts yet"**  
-Ember can't draft messages for contacts that aren't in your Notion. Add them first with `/ember:add`, then retry.
+**"I don't have [Name] in your contacts yet"**
+Add them first with `/ember:contact`, then retry.
 
-**"I couldn't find your Ember Settings page"**  
-You likely haven't duplicated the Notion template yet, or duplicated it into a workspace that isn't connected to Claude. Re-duplicate the template and make sure the Notion integration is authorised.
+**"I couldn't find your Ember Settings page"**
+You likely haven't duplicated the Notion template, or it's in a workspace that isn't connected to Claude.
 
-**Ember seems to be reading someone else's data / nothing is showing up**  
-Make sure you duplicated the template — don't just view it. Duplicating creates your own private copy. If you're not sure, check that your Notion sidebar shows a "Contacts" and "Interactions" database that you own.
+**Ember seems to be reading someone else's data**
+Make sure you duplicated the template — don't just view it.
 
-**The Notion integration isn't showing up in Claude**  
-Try disconnecting and reconnecting the Notion integration from Claude's integrations menu. If the issue persists, make sure you're on [claude.ai](https://claude.ai) and not a third-party Claude interface.
+**The Notion integration isn't showing up in Claude**
+Try disconnecting and reconnecting from Claude's integrations menu.
 
-**LinkedIn DM is being cut off**  
-Ember enforces a hard 300-character cap on LinkedIn DMs (LinkedIn's actual limit). If the draft feels too short, ask Ember to make it "warmer" or "more specific" — it'll rewrite within the limit.
+**LinkedIn DM is being cut off**
+Ember enforces a hard 300-character cap (LinkedIn's actual limit). Ask Ember to rewrite within the limit.
 
 ---
 
@@ -264,22 +278,31 @@ Ember enforces a hard 300-character cap on LinkedIn DMs (LinkedIn's actual limit
 ember/
 ├── README.md
 ├── .claude-plugin/
-│   └── plugin.json            # Cowork plugin manifest
-├── .mcp.json                  # Notion MCP connection — auto-wired on install
+│   └── plugin.json              # Plugin manifest
 ├── commands/
-│   ├── setup.md               # /ember:setup
-│   ├── add.md                 # /ember:add
-│   ├── reach-out.md           # /ember:reach-out
-│   ├── follow-up.md           # /ember:follow-up
-│   ├── log.md                 # /ember:log
-│   └── nudge.md               # /ember:nudge
+│   ├── setup.md                 # /ember:setup
+│   ├── contact.md               # /ember:contact
+│   ├── company.md               # /ember:company
+│   ├── apply.md                 # /ember:apply
+│   ├── reach-out.md             # /ember:reach-out
+│   ├── follow-up.md             # /ember:follow-up
+│   ├── log.md                   # /ember:log
+│   ├── scout.md                 # /ember:scout
+│   ├── search.md                # /ember:search
+│   ├── pipeline.md              # /ember:pipeline
+│   └── nudge.md                 # /ember:nudge
 └── skills/
-    ├── 00-onboarding.md       # First-time setup flow
-    ├── 01-contact-intake.md   # Add contacts
-    ├── 02-outreach.md         # Draft first-touch messages
-    ├── 03-follow-up.md        # Draft follow-up messages
-    ├── 04-log.md              # Log interactions
-    └── 05-nudge.md            # Surface reconnection nudges
+    ├── 00-onboarding.md         # First-time setup flow
+    ├── 01-contact-intake.md     # Add contacts + company linking
+    ├── 02-outreach.md           # Draft first-touch messages
+    ├── 03-follow-up.md          # Draft follow-up messages
+    ├── 04-log.md                # Log interactions
+    ├── 05-nudge.md              # People + company nudges
+    ├── 06-company.md            # Add target companies
+    ├── 07-apply.md              # Log job applications
+    ├── 08-scout.md              # Company + contact profiles
+    ├── 09-search.md             # Natural language search
+    └── 10-pipeline.md           # Company pipeline view
 ```
 
 ---

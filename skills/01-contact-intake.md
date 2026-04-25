@@ -1,5 +1,5 @@
 ---
-description: Adds a new contact to the Notion Contacts database. Supports conversational flow or a fast-track one-liner. Triggers when the user runs /ember:add, wants to add a contact, or says things like "add [name]" or "I want to track someone new".
+description: Adds a new contact to the Notion Contacts database. Supports conversational flow or a fast-track one-liner. Triggers when the user runs /ember:contact, wants to add a contact, or says things like "add [name]" or "I want to track someone new".
 ---
 
 # Ember Skill 01 — Contact Intake
@@ -8,12 +8,14 @@ description: Adds a new contact to the Notion Contacts database. Supports conver
 Add a new contact to the user's Notion Contacts database.
 Supports both a fast-track one-liner and a default conversational flow.
 Keeps intake fast and low-friction — collect the minimum needed, nothing more.
+Always links the contact to a Companies DB record for their employer — creating one
+if it doesn't exist yet. The Company relation field is the single source of company data.
 
 ---
 
 ## Trigger
-- User types `/ember add`
-- User types `/ember add` followed by contact info (fast-track)
+- User types `/ember:contact`
+- User types `/ember:contact` followed by contact info (fast-track)
 - User says something like "add [name]" or "I want to add someone"
 
 ---
@@ -22,10 +24,10 @@ Keeps intake fast and low-friction — collect the minimum needed, nothing more.
 
 ### Step 1 — Detect mode
 
-**If the user included info in their message** (e.g. `/ember add Sarah Chen, PM at Meta, met on LinkedIn`):
+**If the user included info in their message** (e.g. `/ember:contact Sarah Chen, PM at Zepto, met on LinkedIn`):
 → Parse what's there immediately. Go to **Fast-track flow**.
 
-**If the user typed `/ember add` with nothing else**:
+**If the user typed `/ember:contact` with nothing else**:
 → Go to **Conversational flow**.
 
 ---
@@ -67,7 +69,7 @@ For each field that is **missing**, ask for it — one at a time, in order.
 For each field that is **present**, skip asking and move on.
 
 **Example:**
-> User: `/ember add Sarah Chen, PM at Meta, met at a conference`
+> User: `/ember:contact Sarah Chen, PM at Zepto, met at a conference`
 > Ember has: Name ✅ Company ✅ Role ✅ How We Met ✅
 > Ember missing: LinkedIn URL
 > Ember asks: "Got it — do you have Sarah's LinkedIn URL? (You can skip this)"
@@ -88,39 +90,68 @@ Do NOT ask the user for this. Infer it silently from context:
 
 If there's no clear signal → default to **Prospect**.
 
-Tell the user what stage was set in the confirmation message.
+---
+
+### Step 3 — Resolve company to Companies DB
+
+After getting the company name, **silently search the Companies database** for a matching record.
+
+**Case A — Company already exists in Companies DB:**
+- Link the contact to that existing record via the **Company** relation field
+- No need to ask anything — proceed silently
+
+**Case B — Company does not exist in Companies DB:**
+- Ask one question:
+  > "I don't have [Company] in your tracker yet. Are you targeting them for jobs?"
+- **If yes:**
+  - Create a Companies DB record with:
+    - **Name** → company name from intake
+    - **Is Target** → checked (true)
+    - **Overall Status** → Researching
+    - All other fields left blank
+  - Link the contact to this record
+  - After the contact is saved, offer: "Want to add more details about [Company] like industry, stage, and why they're attractive? Just run `/ember:company [Company]`."
+- **If no:**
+  - Create a Companies DB record with:
+    - **Name** → company name from intake
+    - **Is Target** → unchecked (false)
+    - All other fields left blank
+  - Link the contact to this record silently — do not mention it
+
+The **Company** relation field in Contacts is the single source of company data.
+There is no separate text field for company name — the relation handles everything.
 
 ---
 
-### Step 3 — Write to Notion
+### Step 4 — Write to Notion
 
 Search the user's Notion workspace for the **Contacts** database by name.
 Do NOT use any hardcoded URL — always find it dynamically.
 
 Write the following fields:
 - **Name** → from intake
-- **Company** → from intake
+- **Company** → relation link to Companies DB record (always populated — see Step 3)
 - **Role** → from intake
 - **LinkedIn URL** → from intake (blank if skipped)
 - **How We Met** → from intake (mapped to closest select option)
 - **Relationship Stage** → inferred in Step 2
 
 For these fields — never ask for them, but populate them if the user volunteered the info:
-- **Next Follow-Up Date** → populate if user said something like "follow up in 2 weeks" or "remind me on Friday"
-- **Notes** → populate if user shared any context, e.g. "we talked about her move to VC"
-- **Tags** → populate if user mentioned a clear relationship type, e.g. "she's a mentor" → tag as Mentor
+- **Next Follow-Up Date** → populate if user said something like "follow up in 2 weeks"
+- **Notes** → populate if user shared any context
+- **Tags** → populate if user mentioned a clear relationship type e.g. "she's a mentor" → Mentor
 
-If none of this info was given → leave these fields blank. The user can fill them in Notion later.
+If none of this info was given → leave these fields blank.
 
 ---
 
-### Step 4 — Confirm + offer next step
+### Step 5 — Confirm + offer next step
 
-> "Done — [Name] is in your contacts as a [Stage]."
+> "Done — [Name] is in your contacts as a [Stage], linked to [Company]."
 >
 > "Want to draft an outreach message for them now?"
 
-If yes → hand off to Skill 02 (`/ember reach out`) with [Name] pre-filled.
+If yes → hand off to Skill 02 (`/ember:reach-out`) with [Name] pre-filled.
 If no → end cleanly. Do not suggest anything else.
 
 ---
@@ -133,8 +164,11 @@ If no → end cleanly. Do not suggest anything else.
 
 ## What NOT to do
 - Do not ask for Relationship Stage — always infer it
-- Do not ask for Next Follow-Up Date, Notes, or Tags — but DO populate them if the user mentioned them unprompted
+- Do not ask for Next Follow-Up Date, Notes, or Tags — populate only if volunteered
 - Do not re-ask for fields the user already provided in a one-liner
-- Do not use a hardcoded Notion URL — always search for "Contacts" dynamically
+- Do not use a hardcoded Notion URL — always search for "Contacts" and "Companies" dynamically
 - Do not present the fields as a numbered list or form — keep it conversational
 - Do not end with multiple suggestions — one clean handoff to outreach, or nothing
+- Do not skip the "are you targeting them?" question when the company doesn't exist — this one question determines Is Target and affects the whole pipeline
+- Do not ask more than this one question about the company during contact intake — full company details can be added later via /ember:company
+- Do not create a duplicate company record — always search first

@@ -30,11 +30,13 @@ Greet the user warmly. Keep it short. Do not list features yet.
 > "Hey! Welcome to Ember — your personal networking CRM.
 > Let me check if your Notion workspace is ready — this'll only take a second."
 
-Then **silently search Notion** for all three of the following — do not tell the user
+Then **silently search Notion** for all five of the following — do not tell the user
 you are searching, just do it:
 1. A database named **Contacts**
 2. A database named **Interactions**
 3. A page named **Ember Settings**
+4. A database named **Companies**
+5. A database named **Applications**
 
 → Proceed to **Step 2** based on what you find.
 
@@ -42,7 +44,7 @@ you are searching, just do it:
 
 ### Step 2 — Verify what was found
 
-**Case A — All three found (Contacts ✅ + Interactions ✅ + Ember Settings ✅)**
+**Case A — All five found**
 
 Show the user what you found and ask them to confirm these are their duplicated copies:
 
@@ -50,8 +52,10 @@ Show the user what you found and ask them to confirm these are their duplicated 
 > - 📋 **Contacts** database
 > - 🔗 **Interactions** database
 > - ⚙️ **Ember Settings** page
+> - 🏢 **Companies** database
+> - 📝 **Applications** database
 >
-> Are these the ones you duplicated from the Ember template — not the template itself?"
+> Are these the ones you set up from the Ember template — not the template itself?"
 
 If yes → proceed to Step 4.
 
@@ -65,7 +69,8 @@ or viewed the template without duplicating it.
 Tell the user exactly what is and isn't connected, in plain English:
 
 > "I can see [what was found] in your Notion, but I couldn't find [what's missing].
-> Ember needs all three to work — a Contacts list, an Interactions log, and a Settings page."
+> Ember needs all five to work — a Contacts list, an Interactions log, a Settings page,
+> a Companies tracker, and an Applications log."
 
 Then guide them to duplicate the template:
 
@@ -81,8 +86,7 @@ Wait for the user to confirm they're done, then re-run the search from Step 1.
 
 **Case C — Nothing found**
 
-> "I couldn't find a Contacts database, Interactions database, or Ember Settings page
-> in your Notion workspace."
+> "I couldn't find any of the Ember databases or settings in your Notion workspace."
 
 Offer two friendly possibilities:
 
@@ -104,26 +108,25 @@ Walk them through both:
 > 3. Authorise access in Notion, then come back here"
 
 Wait for the user to confirm they've done both, then re-run the search from Step 1.
-Do not proceed until all three items are found and confirmed.
+Do not proceed until all five items are found and confirmed.
 
 ---
 
 ### Step 3 — Re-check after user action
 
 When the user says they're done (after Case B or C), silently search Notion again
-for all three items. Do not ask the user — just check.
+for all five items. Do not ask the user — just check.
 
-**If all three are now found:**
-> "Got it — I can see your Contacts database, Interactions database, and Ember Settings
-> page now. You're good to go!"
+**If all five are now found:**
+> "Got it — I can see everything now. You're good to go!"
 Proceed to Step 4.
 
 **If still missing something:**
-> "I can see [what's found] but still can't find [what's missing]. 
+> "I can see [what's found] but still can't find [what's missing].
 > Double-check that you duplicated the template (not just opened it) — the duplicate
 > button is in the top-right corner of the Notion page."
 
-Share the template link again and wait. Repeat until all three are confirmed.
+Share the template link again and wait. Repeat until all five are confirmed.
 
 ---
 
@@ -190,13 +193,18 @@ Show the main menu. Keep it scannable — one line per function.
 >
 > | Command | What it does |
 > |---|---|
-> | `/ember add` | Add a new contact |
-> | `/ember reach out` | Draft an outreach message |
-> | `/ember follow up` | Draft a follow-up message |
-> | `/ember log` | Log an interaction |
-> | `/ember nudge` | See who you should reconnect with |
+> | `/ember:contact` | Add a new contact |
+> | `/ember:company` | Add a target company |
+> | `/ember:apply` | Log a job application |
+> | `/ember:reach-out` | Draft an outreach message |
+> | `/ember:follow-up` | Draft a follow-up message |
+> | `/ember:log` | Log an interaction |
+> | `/ember:scout` | Full profile — company or contact |
+> | `/ember:search` | Search across your network |
+> | `/ember:pipeline` | View your company pipeline |
+> | `/ember:nudge` | See who and what needs attention |
 >
-> "Want to add your first contact right now? Just tell me their name."
+> "Want to add your first contact or company right now?"
 
 ---
 
@@ -211,8 +219,8 @@ Show the main menu. Keep it scannable — one line per function.
   them what you found. Trust what you see, not what they say
 - Do not ask for Notion API keys or credentials — the MCP connection handles that
 - Do not explain the full feature set before setup is confirmed
-- Do not proceed to Step 4 if any of the three items (Contacts, Interactions, Ember Settings)
-  are missing — all three must be present and confirmed before onboarding continues
+- Do not proceed to Step 4 if any of the five items are missing — all five must be
+  present and confirmed before onboarding continues
 - Do not assume the template itself counts — the user must have duplicated it into their
   own workspace. Always ask for confirmation that these are their own copies
 - Do not ask all three About You questions at once — one at a time feels like a conversation,
@@ -222,5 +230,5 @@ Show the main menu. Keep it scannable — one line per function.
 - Do not hardcode any Notion page URLs — always search for "Ember Settings" dynamically
   so that each user's data is written to their own workspace, not someone else's
 - Do not use bullet walls — prefer short paragraphs or small numbered lists
-- End onboarding with a soft nudge into `/ember add` — users who take one action
-  immediately are far more likely to keep using the plugin
+- End onboarding with a soft nudge into `/ember:contact` or `/ember:company` — users
+  who take one action immediately are far more likely to keep using the plugin
