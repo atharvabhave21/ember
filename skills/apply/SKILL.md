@@ -1,6 +1,6 @@
 ---
 name: apply
-description: "Logs a new job application or updates an existing one in the Notion Applications database. Supports conversational flow or a fast-track one-liner. Triggers when the user runs /ember:apply, wants to log an application, or says things like "I applied to [role] at [company]" or "track my application at [company]"."
+description: "Logs a new job application or updates an existing one in the Notion Applications database. Supports conversational flow or a fast-track one-liner. Triggers when the user runs /ember:apply, wants to log an application, or says things like 'I applied to [role] at [company]' or 'track my application at [company]'."
 argument-hint: "[Role at Company, priority, applied today / update Company Role to Status]"
 ---
 

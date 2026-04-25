@@ -1,6 +1,6 @@
 ---
 name: follow-up
-description: "Drafts a follow-up message to an existing contact using logged interaction history. Triggers when the user runs /ember:follow-up, asks to follow up with someone, or says things like "send a follow-up to [name]" or "continue the conversation with [name]"."
+description: "Drafts a follow-up message to an existing contact using logged interaction history. Triggers when the user runs /ember:follow-up, asks to follow up with someone, or says things like 'send a follow-up to [name]' or 'continue the conversation with [name]'."
 argument-hint: "[Contact Name]"
 ---
 

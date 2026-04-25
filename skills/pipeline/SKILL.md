@@ -1,6 +1,6 @@
 ---
 name: pipeline
-description: "Shows a bird's eye view of all target companies, grouped by status, with contacts and applications at each. Triggers when the user runs /ember:pipeline, asks about their company pipeline, or says things like "where do I stand with companies" or "show me my job search pipeline"."
+description: "Shows a bird's eye view of all target companies, grouped by status, with contacts and applications at each. Triggers when the user runs /ember:pipeline, asks about their company pipeline, or says things like 'where do I stand with companies' or 'show me my job search pipeline'."
 ---
 
 # Ember Skill 10 — Pipeline

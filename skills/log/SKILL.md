@@ -1,6 +1,6 @@
 ---
 name: log
-description: "Logs an interaction with a contact into the Notion Interactions database. Supports conversational flow or a fast-track one-liner. Triggers when the user runs /ember:log, or says things like "log a call with [name]" or "I just had a coffee chat with [name]"."
+description: "Logs an interaction with a contact into the Notion Interactions database. Supports conversational flow or a fast-track one-liner. Triggers when the user runs /ember:log, or says things like 'log a call with [name]' or 'I just had a coffee chat with [name]'."
 argument-hint: "[interaction details, e.g. coffee chat with Alex yesterday, discussed X, follow up next week]"
 ---
 

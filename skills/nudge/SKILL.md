@@ -1,6 +1,6 @@
 ---
 name: nudge
-description: "Surfaces contacts and companies the user should reconnect with or follow up on, ranked by urgency. Triggers when the user runs /ember:nudge, asks who to follow up with, or says things like "who have I been neglecting" or "what needs my attention"."
+description: "Surfaces contacts and companies the user should reconnect with or follow up on, ranked by urgency. Triggers when the user runs /ember:nudge, asks who to follow up with, or says things like 'who have I been neglecting' or 'what needs my attention'."
 ---
 
 # Ember Skill 05 — Follow-Up Nudging
