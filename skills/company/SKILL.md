@@ -1,5 +1,7 @@
 ---
-description: Adds a new target company to the Notion Companies database. Supports conversational flow or a fast-track one-liner. Triggers when the user runs /ember:company, wants to track a company, or says things like "I want to add [company]" or "track [company] as a target".
+name: company
+description: "Adds a new target company to the Notion Companies database. Supports conversational flow or a fast-track one-liner. Triggers when the user runs /ember:company, wants to track a company, or says things like "I want to add [company]" or "track [company] as a target"."
+argument-hint: "[Company name, industry, stage, city, how you found them]"
 ---
 
 # Ember Skill 06 — Company Intake

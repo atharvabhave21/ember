@@ -1,5 +1,7 @@
 ---
-description: Shows a full profile for a company or a contact — all details, linked records, and recent activity in one place. Triggers when the user runs /ember:scout, asks to see a company or contact profile, or says things like "tell me about [name]" or "what do I know about [company/person]".
+name: scout
+description: "Shows a full profile for a company or a contact — all details, linked records, and recent activity in one place. Triggers when the user runs /ember:scout, asks to see a company or contact profile, or says things like "tell me about [name]" or "what do I know about [company/person]"."
+argument-hint: "[Company or contact name]"
 ---
 
 # Ember Skill 08 — Scout

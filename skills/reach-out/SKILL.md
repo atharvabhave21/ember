@@ -1,5 +1,7 @@
 ---
-description: Drafts a first-touch outreach message to a contact, personalised by channel and context. Triggers when the user runs /ember:reach-out, asks to reach out to someone, or says things like "draft a message to [name]" or "write an outreach for [name]".
+name: reach-out
+description: "Drafts a first-touch outreach message to a contact, personalised by channel and context. Triggers when the user runs /ember:reach-out, asks to reach out to someone, or says things like "draft a message to [name]" or "write an outreach for [name]"."
+argument-hint: "[Contact Name]"
 ---
 
 # Ember Skill 02 — Outreach Drafting

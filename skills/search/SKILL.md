@@ -1,5 +1,7 @@
 ---
-description: Searches across all Ember databases using natural language filters. Triggers when the user runs /ember:search, asks an exploratory question like "show me Series B companies in Bangalore" or "contacts I met at events", or wants to filter across their network.
+name: search
+description: "Searches across all Ember databases using natural language filters. Triggers when the user runs /ember:search, asks an exploratory question like "show me Series B companies in Bangalore" or "contacts I met at events", or wants to filter across their network."
+argument-hint: "[Natural language search query]"
 ---
 
 # Ember Skill 09 — Search

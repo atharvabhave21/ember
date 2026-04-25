@@ -1,5 +1,6 @@
 ---
-description: Runs Ember's first-time onboarding flow. Verifies Notion workspace setup, collects user context, and unlocks the full plugin. Triggers when the user runs /ember:setup, sets up Ember for the first time, or asks to configure or initialise Ember.
+name: setup
+description: "Runs Ember's first-time onboarding flow. Verifies Notion workspace setup, collects user context, and unlocks the full plugin. Triggers when the user runs /ember:setup, sets up Ember for the first time, or asks to configure or initialise Ember."
 ---
 
 # Ember Onboarding Skill

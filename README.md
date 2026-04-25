@@ -277,32 +277,21 @@ Ember enforces a hard 300-character cap (LinkedIn's actual limit). Ask Ember to 
 ```
 ember/
 ├── README.md
+├── ember.plugin                 # Installable plugin bundle
 ├── .claude-plugin/
 │   └── plugin.json              # Plugin manifest
-├── commands/
-│   ├── setup.md                 # /ember:setup
-│   ├── contact.md               # /ember:contact
-│   ├── company.md               # /ember:company
-│   ├── apply.md                 # /ember:apply
-│   ├── reach-out.md             # /ember:reach-out
-│   ├── follow-up.md             # /ember:follow-up
-│   ├── log.md                   # /ember:log
-│   ├── scout.md                 # /ember:scout
-│   ├── search.md                # /ember:search
-│   ├── pipeline.md              # /ember:pipeline
-│   └── nudge.md                 # /ember:nudge
 └── skills/
-    ├── 00-onboarding.md         # First-time setup flow
-    ├── 01-contact-intake.md     # Add contacts + company linking
-    ├── 02-outreach.md           # Draft first-touch messages
-    ├── 03-follow-up.md          # Draft follow-up messages
-    ├── 04-log.md                # Log interactions
-    ├── 05-nudge.md              # People + company nudges
-    ├── 06-company.md            # Add target companies
-    ├── 07-apply.md              # Log job applications
-    ├── 08-scout.md              # Company + contact profiles
-    ├── 09-search.md             # Natural language search
-    └── 10-pipeline.md           # Company pipeline view
+    ├── setup/SKILL.md           # /ember:setup — first-time onboarding
+    ├── contact/SKILL.md         # /ember:contact — add a contact
+    ├── company/SKILL.md         # /ember:company — add a target company
+    ├── apply/SKILL.md           # /ember:apply — log a job application
+    ├── reach-out/SKILL.md       # /ember:reach-out — draft first-touch outreach
+    ├── follow-up/SKILL.md       # /ember:follow-up — draft a follow-up
+    ├── log/SKILL.md             # /ember:log — log an interaction
+    ├── scout/SKILL.md           # /ember:scout — company or contact profile
+    ├── search/SKILL.md          # /ember:search — natural language search
+    ├── pipeline/SKILL.md        # /ember:pipeline — company pipeline view
+    └── nudge/SKILL.md           # /ember:nudge — people + company nudges
 ```
 
 ---
