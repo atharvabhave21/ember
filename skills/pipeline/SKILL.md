@@ -125,6 +125,7 @@ After showing the full pipeline, identify the single most important action:
 - The top action callout should feel like a smart assistant's insight, not a nag
 
 ## What NOT to do
+- Do not use em dashes (—) in any drafted message or user-facing output — use commas, semicolons, or rewrite the sentence instead
 - Do not hardcode any Notion URLs — always search dynamically
 - Do not show companies where Is Target = false — this is a pipeline view, not a directory
 - Do not show Passed companies prominently — they go at the bottom, collapsed

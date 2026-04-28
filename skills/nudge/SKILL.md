@@ -211,6 +211,7 @@ After showing the list:
 - Never make the user feel guilty for letting contacts go cold — just surface the opportunity
 
 ## What NOT to do
+- Do not use em dashes (—) in any drafted message or user-facing output — use commas, semicolons, or rewrite the sentence instead
 - Do not use hardcoded Notion URLs — always search dynamically
 - Do not show more than 7 people nudges + 6 company/application nudges
 - Do not show a contact in more than one tier

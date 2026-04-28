@@ -128,6 +128,7 @@ After showing results:
 - Never ask for clarification before running — search first, refine after
 
 ## What NOT to do
+- Do not use em dashes (—) in any drafted message or user-facing output — use commas, semicolons, or rewrite the sentence instead
 - Do not hardcode any Notion URLs — always search dynamically
 - Do not ask for clarification before running the search — infer and go
 - Do not return more than 15 results per database

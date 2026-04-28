@@ -165,6 +165,7 @@ If no → end cleanly. Do not suggest anything else.
 - Keep confirmations short — one line is enough
 
 ## What NOT to do
+- Do not use em dashes (—) in any drafted message or user-facing output — use commas, semicolons, or rewrite the sentence instead
 - Do not ask for Relationship Stage — always infer it
 - Do not ask for Next Follow-Up Date, Notes, or Tags — populate only if volunteered
 - Do not re-ask for fields the user already provided in a one-liner

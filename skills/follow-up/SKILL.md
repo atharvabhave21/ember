@@ -222,7 +222,7 @@ write a new record:
 - **Date** → today's date
 - **Type** → matched to channel
 - **Direction** → Outbound
-- **Summary** → first line of the drafted message
+- **Summary** → the full drafted message text, verbatim — never truncate to the first line
 - **Follow-Up Drafted** → checked
 
 If no → skip and proceed to Step 10.
@@ -258,6 +258,7 @@ Do NOT bundle the logging question and the stage question — always one at a ti
 - Always write in first person as if you are the user
 
 ## What NOT to do
+- Do not use em dashes (—) in any drafted message or user-facing output — use commas, semicolons, or rewrite the sentence instead
 - Do not proceed if contact is not in Notion — always redirect to `/ember add`
 - Do not skip the context recap — always show it and confirm, even when context is obvious
 - Do not infer the channel — always ask

@@ -154,6 +154,7 @@ If no → end cleanly.
 - Never make the user feel like they're filling a form
 
 ## What NOT to do
+- Do not use em dashes (—) in any drafted message or user-facing output — use commas, semicolons, or rewrite the sentence instead
 - Do not hardcode select options — always fetch from Applications DB schema dynamically
 - Do not hardcode any Notion URLs — always search dynamically
 - Do not ask for Status — always infer it from context

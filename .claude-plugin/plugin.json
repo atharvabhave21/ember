@@ -1,12 +1,23 @@
 {
   "name": "ember",
-  "version": "0.2.0",
-  "description": "Personal networking CRM and job search pipeline — track contacts, companies, and applications. Draft outreach, log interactions, and get nudged before connections go cold. Backed by your own Notion workspace.",
+  "version": "0.2.3",
+  "description": "Personal networking CRM and job search pipeline \u2014 track contacts, companies, and applications. Draft outreach, log interactions, and get nudged before connections go cold. Backed by your own Notion workspace.",
   "author": {
     "name": "Atharva Bhave"
   },
   "homepage": "https://github.com/atharvabhave21/ember",
   "repository": "https://github.com/atharvabhave21/ember",
   "license": "MIT",
-  "keywords": ["networking", "crm", "notion", "outreach", "contacts", "follow-up", "recruiting", "job-search", "pipeline", "applications"]
+  "keywords": [
+    "networking",
+    "crm",
+    "notion",
+    "outreach",
+    "contacts",
+    "follow-up",
+    "recruiting",
+    "job-search",
+    "pipeline",
+    "applications"
+  ]
 }

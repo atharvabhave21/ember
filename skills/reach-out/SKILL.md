@@ -197,7 +197,7 @@ write a new record:
 - **Date** → today's date
 - **Type** → matched to channel (LinkedIn DM / Email / etc.)
 - **Direction** → Outbound
-- **Summary** → first line of the drafted message
+- **Summary** → the full drafted message text, verbatim — never truncate to the first line
 - **Follow-Up Drafted** → unchecked
 
 If no → skip and proceed to Step 9.
@@ -226,6 +226,88 @@ always log first, then suggest stage update as a separate step.
 
 ---
 
+
+---
+
+## Examples of good drafts — real messages that have worked
+
+These are actual outreach messages that got responses. Use them to calibrate tone, specificity, and length.
+
+---
+
+### LinkedIn DM — alumni reconnect (warm, specific hook)
+> Hello, I had the opportunity to speak with you during the Kellogg International alumni
+> networking call last spring — it was very insightful. Your inputs helped me focus my
+> recruitment on startup operator roles. I'd love to connect and continue learning from
+> your journey.
+
+*LinkedIn DM · ~270 chars · Led with shared alumni event · Warm reconnect tone*
+
+---
+
+### LinkedIn DM — cold, product-company fit hook (B2B AI, startup background)
+> Hi, I'm a 2nd-year Kellogg MBA exploring roles in B2B agentic AI, planning a return to
+> India. Ex-PwC; recently launched AI product at a Series B startup with $1.5M+ ARR. I
+> faced outreach scaling problems while working at Datasurfr and was inspired by Rocket
+> SDR's product, would love to connect.
+
+*LinkedIn DM · ~290 chars · Led with personal pain point matching the product · Credibility + genuine interest*
+
+---
+
+### LinkedIn DM — cold, technical fit hook (ERP / agent integrations)
+> Hi, I'm a 2nd-year Kellogg MBA exploring roles in B2B agentic AI, planning a return to
+> India. Recently launched an AI product at Series B startup to $1.5M+ ARR. Having faced
+> ERP–agent integration challenges via UiPath in PwC, I'm excited by Ema Agent's deep
+> integrations. Would love to connect.
+
+*LinkedIn DM · ~290 chars · Led with specific technical experience matching the company · Direct, no fluff*
+
+---
+
+### LinkedIn DM — cold, domain-specific fit (fintech AI)
+> Hi, I'm a 2nd-year Kellogg MBA exploring employment opportunities in B2B agentic AI,
+> planning a return to India. Ex-PwC; recently helped launch an AI product at a Series B
+> startup to $1.5M+ ARR. Impressed by how Prodigal applies AI to automate consumer
+> financial workflows.
+
+*LinkedIn DM · ~285 chars · Led with company-specific observation · Clean, no generic ask*
+
+---
+
+### LinkedIn DM — cold, research-backed hook (consulting project insight)
+> Hi,
+> I'm a 2nd-year Kellogg MBA exploring PM/strategy roles in India. I'm working on a
+> McKinsey research project where we found ballooning costs are the primary barrier for
+> enterprise AI adoption. Sarvam's low-cost inference directly addresses this. Would love
+> to connect and hear your perspective.
+
+*LinkedIn DM · ~290 chars · Led with proprietary research insight · Shows genuine domain knowledge*
+
+---
+
+## What makes these work
+
+- **Specific hook in every message** — references a shared event, a personal pain point, a company observation, or a research finding. Never generic.
+- **Credibility signals are brief** — "Ex-PwC, $1.5M+ ARR" in one clause, not a paragraph
+- **The ask is light** — "would love to connect" or "hear your perspective", never "can we schedule a call to discuss opportunities"
+- **No filler openers** — none start with "I hope this message finds you well" or "I wanted to reach out"
+- **Company-specific observation** — the recipient can tell the message was written for them, not blasted
+
+---
+
+## What bad looks like (never produce these)
+
+❌ "Hi [Name], I hope this message finds you well. I wanted to reach out because I came
+across your profile and was very impressed by your career trajectory..."
+→ Generic, passive opener, no specific hook, could be sent to anyone
+
+❌ "Dear [Name], My name is Atharva and I am a student at Kellogg. I am very interested
+in [Company] and would love to learn more about opportunities there..."
+→ Reads like a mass template, asks for a job too directly, no personalisation
+
+---
+
 ## Tone guidelines
 - Messages should sound like the user, not like AI copy
 - Never use phrases like "I hope this message finds you well" — too generic
@@ -234,6 +316,7 @@ always log first, then suggest stage update as a separate step.
 - Always write in first person as if you are the user
 
 ## What NOT to do
+- Do not use em dashes (—) in any drafted message or user-facing output — use commas, semicolons, or rewrite the sentence instead
 - Do not proceed if the contact is not in Notion — always send to `/ember add` first
 - Do not exceed 300 characters for LinkedIn DM under any circumstances
 - Do not ask for tone — infer it

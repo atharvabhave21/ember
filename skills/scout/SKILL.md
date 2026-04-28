@@ -134,6 +134,7 @@ Hand off to the relevant skill with contact pre-filled.
 - The goal is to give the user everything they need to act in the next 30 seconds
 
 ## What NOT to do
+- Do not use em dashes (—) in any drafted message or user-facing output — use commas, semicolons, or rewrite the sentence instead
 - Do not hardcode any Notion URLs — always search dynamically
 - Do not ask the user what type of entity they want before searching — always search both and infer
 - Do not show all interactions — cap at 5 most recent

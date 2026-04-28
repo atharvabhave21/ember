@@ -62,9 +62,12 @@ If the user mentioned a date in their message (e.g. "yesterday", "on Monday",
 "last Tuesday") → parse it silently. Do not ask.
 
 **1d. Summary**
-> "Give me a quick summary — what was discussed?"
+> "Give me a quick summary — what was discussed? Feel free to paste the full message if you have it."
 
-Keep it brief. One to three sentences. User's own words.
+Preserve the user's full input exactly as given — do NOT truncate, summarise, or shorten.
+If the user pastes a full message, email, or DM, log the entire text verbatim.
+If the user gives a short summary, that's fine too — store it as-is.
+User's own words, full length, no edits.
 
 **1e. Next Step**
 > "Any next steps from this? e.g. 'Send her the case study' or 'She'll make an intro'"
@@ -122,7 +125,7 @@ Write the following fields:
 - **Date** → from intake, or today if not specified
 - **Type** → from intake (mapped to closest select option)
 - **Direction** → inferred in Step 2
-- **Summary** → from intake
+- **Summary** → from intake — store verbatim, full length, no summarisation
 - **Next Step** → from intake (blank if none given)
 - **Follow-Up Drafted** → unchecked by default
 
@@ -184,6 +187,7 @@ Do NOT bundle the follow-up date offer and the stage question — always one at 
 - If the user's summary is vague, accept it — their notes, their words
 
 ## What NOT to do
+- Do not use em dashes (—) in any drafted message or user-facing output — use commas, semicolons, or rewrite the sentence instead
 - Do not proceed if the contact is not in Notion — always redirect to `/ember add`
 - Do not ask for Direction — always infer it
 - Do not ask for Date if it was mentioned in the one-liner — parse it silently

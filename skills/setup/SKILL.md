@@ -216,6 +216,7 @@ Show the main menu. Keep it scannable — one line per function.
 - Use plain English: say "your contact list" not "the Contacts database"
 
 ## What NOT to do
+- Do not use em dashes (—) in any drafted message or user-facing output — use commas, semicolons, or rewrite the sentence instead
 - Do not ask the user if they've set up Notion — always check silently first and show
   them what you found. Trust what you see, not what they say
 - Do not ask for Notion API keys or credentials — the MCP connection handles that
